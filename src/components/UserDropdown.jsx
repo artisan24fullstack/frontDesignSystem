@@ -1,12 +1,27 @@
 import { FiChevronDown } from "react-icons/fi";
+import { FiCheck } from "react-icons/fi";
 
 
 
-export const UserDropdown = ({ usersArray, setIsDropdownOpen, isDropdownOpen }) => {
+export const UserDropdown = ({ usersArray, setIsDropdownOpen, isDropdownOpen, setAssignedList,
+  assignedList }) => {
   const toggleDropdown = () => {
     setIsDropdownOpen(true);
   };
 
+  function handleAssign(user) {
+    setAssignedList((prevList) => {
+      // Check if the user already exists in the list
+      if (prevList.includes(user)) {
+        // If user exists, remove it from the list
+        const updatedList = prevList.filter((item) => item !== user);
+        return updatedList;
+      } else {
+        // If user doesn't exist, add it to the list
+        return [...prevList, user];
+      }
+    });
+  }
   return (
     <div>
       <label className="mt-4">Assign user(s) to as task:</label>
@@ -24,7 +39,11 @@ export const UserDropdown = ({ usersArray, setIsDropdownOpen, isDropdownOpen }) 
               {usersArray.map((user) => (
                 <li
                   key={user.id}
-                  className={`flex items-center gap-2 p-4 hover:bg-[#2b2c37] rounded transition-all duration-200 `}>
+                  className={`flex items-center gap-2 p-4 hover:bg-[#2b2c37] rounded transition-all duration-200 `}
+                  onClick={() => handleAssign(user)}
+                >
+                  {assignedList.includes(user) && <FiCheck />}
+
                   <img
                     className="w-6 h-6 "
                     src={user.imgUrl}

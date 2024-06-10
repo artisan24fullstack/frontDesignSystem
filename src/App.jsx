@@ -5,6 +5,7 @@ import { usersArray } from "./data/userData.js";
 import './index.css'
 function App() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [assignedList, setAssignedList] = useState([]);
 
   return (
     <>
@@ -21,6 +22,8 @@ function App() {
             usersArray={usersArray}
             isDropdownOpen={isDropdownOpen}
             setIsDropdownOpen={setIsDropdownOpen}
+            assignedList={assignedList}
+            setAssignedList={setAssignedList}
           />
         </div>
         <div className="grid grid-cols-2 gap-4">
