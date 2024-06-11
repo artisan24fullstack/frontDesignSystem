@@ -7,6 +7,8 @@ import UserAssignDropdown from './pattern/userDropdownCompound.jsx'
 import Tabs from './pattern/TabsCompound.jsx';
 import { Card, ActionButton, Actions, Header, HeaderButton, Image, Name, Role, SocialButton, Socials } from './pattern/CardCompound.jsx';
 import { IoLogoInstagram, IoLogoTwitter, IoLogoYoutube, IoLogoLinkedin, IoArrowBack, IoEllipsisVerticalOutline } from "react-icons/io5";
+import Rating from './components/Rating.jsx';
+import { Toaster } from "react-hot-toast";
 
 export const tabsData = [
   { id: 0, title: 'Tab 1', content: 'Tab Panel 1' },
@@ -21,17 +23,14 @@ function App() {
   return (
     <>
       <div className="bg-stone-200 h-[500dvh] text-white p-20 gap-4 items-center ">
-        <div className='flex'>
-          <div className="grid grid-cols-3">
-            <Card>
-              <Image src={"https://i.pravatar.cc/300"} alt={"Profile image"} />
-              <div className='mt-4 mb-2'>
-                <Name>John Doe</Name>
-                <Role>UX Specialist</Role>
-              </div>
-            </Card>
 
-          </div>
+        <div className="grid grid-cols-6">
+          <Toaster />
+          <Rating />
+        </div>
+        <br /><hr /><br />
+
+        <div className='flex'>
           <div className="grid grid-cols-3">
             <Card>
               <Header>
@@ -51,7 +50,7 @@ function App() {
             </Card>
 
           </div>
-          <div className="grid grid-cols-3">
+          <div className="grid grid-cols-3 ">
             <Card>
 
               <Image src={"https://i.pravatar.cc/300"} alt={"Profile image"} />
@@ -68,22 +67,7 @@ function App() {
             </Card>
 
           </div>
-          <div className="grid grid-cols-3">
-            <Card>
-              <Socials>
-                <SocialButton><IoLogoInstagram /></SocialButton>
-                <SocialButton><IoLogoLinkedin /></SocialButton>
-                <SocialButton><IoLogoTwitter /></SocialButton>
-                <SocialButton><IoLogoYoutube /></SocialButton>
-              </Socials>
-              <Image src={"https://i.pravatar.cc/300"} alt={"Profile image"} />
-              <div className='mt-4 mb-2'>
-                <Name>John Doe</Name>
-                <Role>UX Specialist</Role>
-              </div>
-            </Card>
 
-          </div>
         </div>
         <br /><hr /><br />
         <div className="grid grid-cols-3">
