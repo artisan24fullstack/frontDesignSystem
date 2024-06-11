@@ -11,6 +11,7 @@ import Rating from './components/Rating.jsx';
 import { Toaster } from "react-hot-toast";
 import MultiRatings from './pattern/RatingCompound.jsx';
 
+
 export const tabsData = [
   { id: 0, title: 'Tab 1', content: 'Tab Panel 1' },
   { id: 1, title: 'Tab 2', content: 'Tab Panel 2' },
@@ -78,14 +79,8 @@ function App() {
         </div>
         <br /><hr /><br />
 
-        <div className="grid grid-cols-6">
-          <Toaster />
-          <Rating />
-        </div>
-        <br /><hr /><br />
-
         <div className='flex'>
-          <div className="grid grid-cols-3">
+          <div className="grid grid-cols-2 ">
             <Card>
               <Header>
                 <HeaderButton onClick={() => { }}><IoArrowBack /></HeaderButton>
@@ -104,14 +99,14 @@ function App() {
             </Card>
 
           </div>
-          <div className="grid grid-cols-3 ">
+          <div className="grid grid-cols-2 ">
             <Card>
 
-              <Image src={"https://i.pravatar.cc/300"} alt={"Profile image"} />
               <div className='mt-4 mb-2'>
                 <Name>John Doe</Name>
                 <Role>UX Specialist</Role>
               </div>
+              <Image src={"https://i.pravatar.cc/300"} alt={"Profile image"} />
               <Socials>
                 <SocialButton><IoLogoInstagram /></SocialButton>
                 <SocialButton><IoLogoLinkedin /></SocialButton>
