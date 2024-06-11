@@ -2,7 +2,7 @@ import { FiCheck, FiChevronDown } from "react-icons/fi";
 import { createContext, useContext, useRef, useState } from "react";
 
 import { FaXmark } from "react-icons/fa6";
-//import useClickOutside from "../hooks/useClickOutside";
+import useClickOutside from "../hooks/useClickOutside";
 
 const UserAssignContext = createContext();
 
@@ -15,6 +15,9 @@ const UserAssignDropdown = ({
   const UserAssignDropdownRef = useRef(null);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
+  useClickOutside(UserAssignDropdownRef, () => {
+    setIsDropdownOpen(false);
+  });
   return (
     <UserAssignContext.Provider
       value={{
@@ -33,7 +36,7 @@ const UserAssignDropdown = ({
 // The Header Component
 
 const Header = () => {
-  return <label className="mt-4 mb-2 text-sm">Assign task to:</label>;
+  return <label className="mt-4 mb-2 text-black	text-sm">Assign task to:</label>;
 };
 
 
@@ -69,13 +72,13 @@ const AssignedList = () => {
 
   if (assignedList.length === 0)
     return (
-      <p className="mt-4 p-2 shadow-sm bg-[#828fa318] rounded">
+      <p className="mt-4 p-2 shadow-sm bg-[#20212c] rounded">
         No users assigned to the task yet.
       </p>
     );
 
   return (
-    <div className="mt-4 p-2 shadow-sm bg-[#828fa318] rounded">
+    <div className="mt-4 p-2 shadow-sm bg-[#20212c] rounded">
       <h2 className="px-2 my-3 font-bold">Assigned list:</h2>
       <div className="flex flex-wrap gap-4 ">
         {assignedList?.map((user, index) => (
@@ -138,7 +141,7 @@ const Button = () => {
   const { setIsDropdownOpen } = useContext(UserAssignContext);
   return (
     <button
-      className="  px-4 py-2 flex items-center justify-between w-full rounded border border-[#828FA340] hover:border-primary cursor-pointer relative "
+      className="  px-4 py-2 flex items-center justify-between w-full rounded border border-[#20212c] hover:border-primary cursor-pointer relative "
       onClick={() => setIsDropdownOpen(true)}>
       <span className="block">
         <FiChevronDown color="#635FC7" size={24} />
