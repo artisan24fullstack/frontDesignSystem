@@ -1,4 +1,5 @@
 import { FiCheck, FiChevronDown } from "react-icons/fi";
+import { FaXmark } from "react-icons/fa6";
 
 
 
@@ -36,6 +37,20 @@ export const UserDropdown = ({ usersArray, setIsDropdownOpen, isDropdownOpen, se
         </span>
         {isDropdownOpen && (
           <div className="absolute bottom-full translate-x-9  left-full translate-y-full rounded bg-[#20212c] w-max">
+            {/* Close button */}
+            <div
+              className="absolute top-0 right-0 flex items-center justify-center -translate-y-full gap-2 bg-[#20212c] px-2 py-1 rounded-t"
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsDropdownOpen(false);
+                console.log(isDropdownOpen);
+              }}
+            >
+              <span>Close</span>
+              <span>
+                <FaXmark size={20} />
+              </span>
+            </div>
             <ul className="flex flex-col p-2">
               {usersArray.map((user) => (
                 <li

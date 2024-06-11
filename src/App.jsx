@@ -1,11 +1,13 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { UserDropdown } from './components/UserDropdown'
 import { usersArray } from "./data/userData.js";
 import { FaXmark } from "react-icons/fa6";
 import './index.css'
+
 function App() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [assignedList, setAssignedList] = useState([]);
+  const dropdownContainerRef = useRef(null);
 
   return (
     <>
@@ -17,7 +19,7 @@ function App() {
 
         </div>
 
-        <div className="grid grid-cols-4">
+        <div className="grid grid-cols-4" ref={dropdownContainerRef}>
           <UserDropdown
             usersArray={usersArray}
             isDropdownOpen={isDropdownOpen}
