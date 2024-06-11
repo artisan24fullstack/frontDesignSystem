@@ -9,6 +9,7 @@ import { Card, ActionButton, Actions, Header, HeaderButton, Image, Name, Role, S
 import { IoLogoInstagram, IoLogoTwitter, IoLogoYoutube, IoLogoLinkedin, IoArrowBack, IoEllipsisVerticalOutline } from "react-icons/io5";
 import Rating from './components/Rating.jsx';
 import { Toaster } from "react-hot-toast";
+import MultiRatings from './pattern/RatingCompound.jsx';
 
 export const tabsData = [
   { id: 0, title: 'Tab 1', content: 'Tab Panel 1' },
@@ -20,9 +21,62 @@ export const tabsData = [
 function App() {
   const [assignedList, setAssignedList] = useState([]);
 
+  const multiRatings = [
+    { name: "The Dark Knight", year: 2008, length: 5, rating: 0 },
+    { name: "Knives Out", year: 2019, length: 5, rating: 0 },
+    { name: "Serendipity", year: 2001, length: 5, rating: 0 },
+    { name: "The Dressmaker", year: 2015, length: 5, rating: 0 },
+    { name: "The Grand Budapest Hotel", year: 2015, length: 5, rating: 0 },
+  ];
+
+  const randomNames = [
+    "Anonymous Llama",
+    "Mysterious Moose",
+    "Stealthy Sloth",
+    "Phantom Panda",
+    "Incognito Iguana",
+    "Unknown Unicorn",
+    "Enigmatic Elephant",
+    "Ghostly Giraffe",
+    "Shadowy Shark",
+    "Cryptic Cobra",
+    "Silent Swan",
+    "Nameless Narwhal",
+    "Obscure Octopus",
+    "Unseen Uakari",
+    "Hidden Hedgehog",
+    "Masked Macaw",
+    "Veiled Vulture",
+    "Concealed Chameleon",
+    "Covert Cockatoo",
+    "Invisible Impala",
+  ];
+
+  const [ratings, setRatings] = useState(multiRatings);
+
+  const updateRating = (index, newRating) => {
+    setRatings((prevRatings) =>
+      prevRatings.map((r, i) => (i === index ? { ...r, rating: newRating } : r))
+    );
+    console.log(ratings);
+  };
   return (
     <>
       <div className="bg-stone-200 h-[500dvh] text-white p-20 gap-4 items-center ">
+
+        <div className="grid grid-cols-2">
+          <Toaster />
+
+          <MultiRatings
+            ratingsData={ratings}
+            updateRating={updateRating}
+            randomNames={randomNames}>
+            <MultiRatings.RatingsContainer />
+            <MultiRatings.Comment />
+            <MultiRatings.UserFeedback />
+          </MultiRatings>
+        </div>
+        <br /><hr /><br />
 
         <div className="grid grid-cols-6">
           <Toaster />
