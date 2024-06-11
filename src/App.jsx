@@ -5,6 +5,8 @@ import { usersArray } from './data/userData.js'
 import './index.css'
 import UserAssignDropdown from './pattern/userDropdownCompound.jsx'
 import Tabs from './pattern/TabsCompound.jsx';
+import { Card, ActionButton, Actions, Header, HeaderButton, Image, Name, Role, SocialButton, Socials } from './pattern/CardCompound.jsx';
+import { IoLogoInstagram, IoLogoTwitter, IoLogoYoutube, IoLogoLinkedin, IoArrowBack, IoEllipsisVerticalOutline } from "react-icons/io5";
 
 export const tabsData = [
   { id: 0, title: 'Tab 1', content: 'Tab Panel 1' },
@@ -18,13 +20,72 @@ function App() {
 
   return (
     <>
-      <div className="bg-stone-200 h-[100dvh] text-white p-20 gap-4 items-center ">
-        <div className=" grid justify-center items-center ">
-          <h1 className="text-3xl font-bold ">
-            Design system
-          </h1>
+      <div className="bg-stone-200 h-[500dvh] text-white p-20 gap-4 items-center ">
+        <div className='flex'>
+          <div className="grid grid-cols-3">
+            <Card>
+              <Image src={"https://i.pravatar.cc/300"} alt={"Profile image"} />
+              <div className='mt-4 mb-2'>
+                <Name>John Doe</Name>
+                <Role>UX Specialist</Role>
+              </div>
+            </Card>
 
+          </div>
+          <div className="grid grid-cols-3">
+            <Card>
+              <Header>
+                <HeaderButton onClick={() => { }}><IoArrowBack /></HeaderButton>
+                <HeaderButton onClick={() => { }}><IoEllipsisVerticalOutline /></HeaderButton>
+              </Header>
+              <Image src={"https://i.pravatar.cc/300"} alt={"Profile image"} />
+              <div className='mt-4 mb-2'>
+                <Name>John Doe</Name>
+                <Role>UX Specialist</Role>
+              </div>
+              <Actions>
+                <ActionButton type={'primary'} onClick={() => { }}> Message</ActionButton>
+                <ActionButton type={'secondary'} onClick={() => { }}> Call</ActionButton>
+
+              </Actions>
+            </Card>
+
+          </div>
+          <div className="grid grid-cols-3">
+            <Card>
+
+              <Image src={"https://i.pravatar.cc/300"} alt={"Profile image"} />
+              <div className='mt-4 mb-2'>
+                <Name>John Doe</Name>
+                <Role>UX Specialist</Role>
+              </div>
+              <Socials>
+                <SocialButton><IoLogoInstagram /></SocialButton>
+                <SocialButton><IoLogoLinkedin /></SocialButton>
+                <SocialButton><IoLogoTwitter /></SocialButton>
+                <SocialButton><IoLogoYoutube /></SocialButton>
+              </Socials>
+            </Card>
+
+          </div>
+          <div className="grid grid-cols-3">
+            <Card>
+              <Socials>
+                <SocialButton><IoLogoInstagram /></SocialButton>
+                <SocialButton><IoLogoLinkedin /></SocialButton>
+                <SocialButton><IoLogoTwitter /></SocialButton>
+                <SocialButton><IoLogoYoutube /></SocialButton>
+              </Socials>
+              <Image src={"https://i.pravatar.cc/300"} alt={"Profile image"} />
+              <div className='mt-4 mb-2'>
+                <Name>John Doe</Name>
+                <Role>UX Specialist</Role>
+              </div>
+            </Card>
+
+          </div>
         </div>
+        <br /><hr /><br />
         <div className="grid grid-cols-3">
           <Tabs>
             <div className='flex'>
@@ -54,6 +115,8 @@ function App() {
           </Tabs>
 
         </div>
+        <br /><hr /><br />
+
         <div className="grid grid-cols-3">
           <UserAssignDropdown
             assignedList={assignedList}
