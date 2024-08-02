@@ -18,6 +18,12 @@ Framework Tailwind.css - React.js
 - useContext
 - useRef
 
+### PATTERN
+CardCompound.jsx
+RatingCompound.jsx
+TabsCompound.jsx
+userDropdownCompound.jsx
+
 - https://tailwindui.com/components/preview
 
 
